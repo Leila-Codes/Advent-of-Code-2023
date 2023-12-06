@@ -19,3 +19,6 @@
 
 # Go workspace file
 go.work
+
+# Hide my puzzle inputs
+*_Input.txt
