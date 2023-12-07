@@ -21,8 +21,8 @@ func GetEngineParts(filePath string) (partNumbers []int) {
 
 	for y := 0; y < len(schematic); y++ {
 		for x := 0; x < len(schematic[y]); x++ {
-			buff = append(buff, schematic.Get(x, y))
 			char := schematic[y][x]
+			buff = append(buff, char)
 
 			if unicode.IsDigit(char) {
 				intBuff = append(intBuff, char)
@@ -56,14 +56,6 @@ func GetEngineParts(filePath string) (partNumbers []int) {
 	return partNumbers
 }
 
-func sum(vals ...int) (total int) {
-	for _, v := range vals {
-		total += v
-	}
-
-	return total
-}
-
 func main() {
-	fmt.Println("answer is: ", sum(GetEngineParts("Puzzle03_Input.txt")...))
+	fmt.Println("answer is: ", gears.Sum(GetEngineParts("Puzzle03_Input.txt")...))
 }
