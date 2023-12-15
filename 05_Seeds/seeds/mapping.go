@@ -11,36 +11,19 @@ type MappingRange struct {
 	Length           int
 }
 
-type MappingRangeType int
+func (mr MappingRange) Contains(input int) bool {
 
-const (
-	Source MappingRangeType = iota
-	Destination
-)
-
-func (mr MappingRange) Contains(input int, rangeType MappingRangeType) bool {
-	var (
-		min int
-		max int
-	)
-
-	switch rangeType {
-	case Source:
-		min, max = mr.SourceStart, mr.SourceStart+mr.Length
-	case Destination:
-		min, max = mr.DestinationStart, mr.DestinationStart+mr.Length
-	}
-
-	return input >= min && input < max
+	return input >= mr.SourceStart &&
+		input < mr.SourceStart+mr.Length
 }
 
 func (mr MappingRange) Map(input int) int {
-	if mr.Contains(input, Source) {
+	if mr.Contains(input) {
 		theta := mr.DestinationStart - mr.SourceStart
 		return input + theta
 	}
 
-	return 0
+	return input
 }
 
 func MappingRangeFromText(line string) MappingRange {

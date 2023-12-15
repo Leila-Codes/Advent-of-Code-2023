@@ -1,9 +1,9 @@
 package scratchcard
 
 import (
-	"04_Scratchcards/hashset"
 	"bufio"
 	"fmt"
+	"github.com/leila-codes/advent-of-code-2023/hashset"
 	"os"
 	"regexp"
 	"strconv"

@@ -36,3 +36,17 @@ func (s Set[T]) Remove(value T) {
 func (s Set[T]) Length() int {
 	return len(s)
 }
+
+func (s Set[T]) Values() []T {
+	var (
+		values = make([]T, len(s))
+		iter   = 0
+	)
+
+	for i := range s {
+		values[iter] = i
+		iter++
+	}
+
+	return values
+}
