@@ -13,6 +13,8 @@ func ParseNumberList(line string) []int {
 	)
 
 	for _, p := range parts {
+		p = strings.TrimSpace(p)
+
 		if len(p) == 0 {
 			continue
 		}
