@@ -1,0 +1,12 @@
+package main
+
+import (
+	"08_Haunted_Wasteland/documents"
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
+
+func TestNavigateMap(t *testing.T) {
+	testMap := documents.MapFromFile("Puzzle08_Example_Input.txt")
+	assert.Equal(t, 2, NavigateMap(testMap), "map was not completed in expected steps.")
+}

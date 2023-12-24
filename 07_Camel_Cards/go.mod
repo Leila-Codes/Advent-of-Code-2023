@@ -1,4 +1,4 @@
-module 06_Wait_for_it
+module 07_Camel_Cards
 
 go 1.21.1
 
